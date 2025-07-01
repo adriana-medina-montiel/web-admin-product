@@ -8,4 +8,6 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'products', loadComponent: () => import('../pages/products/products.component').then(m => m.ProductsComponent) },
+  { path: 'membrecias', loadComponent: () => import('../pages/membresias/membresias.component').then(m => m.MembresiasComponent) },
 ];

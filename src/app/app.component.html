@@ -1,7 +1,10 @@
 <nav>
-  <a routerLink="/">Inicio</a> |
-  <a routerLink="/about">Acerca de</a> |
-  <a routerLink="/contact">Contacto</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a> |
+  <a routerLink="/about" routerLinkActive="active">Inventario</a> |
+  <a routerLink="/contact" routerLinkActive="active">personal</a>
+  <a routerLink="/products" routerLinkActive="active">Productos</a>
+  <a routerLink="/membrecias" routerLinkActive="active">Membrecias</a>
 </nav>
+
 
 <router-outlet></router-outlet>

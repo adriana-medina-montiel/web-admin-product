@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Membresías del Gym</h2>
+
+  <div class="table-header">
+    <input
+      type="text"
+      placeholder="Buscar membresía..."
+      [(ngModel)]="terminoBusqueda"
+      class="search-input"
+    />
+    <span class="search-icon">&#128269;</span>
+  </div>
+
+  <table *ngIf="membresias.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio (MXN)</th>
+        <th>Duración (meses)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of membresiasFiltradas">
+        <td>{{ m.nombre }}</td>
+        <td>{{ m.precio | currency:'MXN' }}</td>
+        <td>{{ m.duracion }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando membresías...</p>
+  </ng-template>
+</div>

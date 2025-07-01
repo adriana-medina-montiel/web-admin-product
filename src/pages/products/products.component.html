@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Productos del Gym</h2>
+
+  <div class="table-header">
+    <input
+      type="text"
+      placeholder="Buscar producto..."
+      [(ngModel)]="terminoBusqueda"
+      class="search-input"
+    />
+    <span class="search-icon">&#128269;</span>
+  </div>
+
+  <table *ngIf="productos.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio (MXN)</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productosFiltrados">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.categoria }}</td>
+        <td>{{ producto.precio | currency:'MXN' }}</td>
+        <td>{{ producto.stock }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align: center;">Cargando productos...</p>
+  </ng-template>
+</div>
+

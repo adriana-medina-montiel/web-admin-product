@@ -1,1 +1,36 @@
-<p>contact works!</p>
+<div class="container">
+  <h2>Personal del Gym</h2>
+
+  <div class="table-header">
+    <input
+      type="text"
+      placeholder="Buscar personal..."
+      [(ngModel)]="terminoBusqueda"
+      class="search-input"
+    />
+    <span class="search-icon">&#128269;</span>
+  </div>
+
+  <table *ngIf="personal.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Rol</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let miembro of personalFiltrado">
+        <td>{{ miembro.nombre }}</td>
+        <td>{{ miembro.rol }}</td>
+        <td>{{ miembro.telefono }}</td>
+        <td>{{ miembro.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando personal...</p>
+  </ng-template>
+</div>

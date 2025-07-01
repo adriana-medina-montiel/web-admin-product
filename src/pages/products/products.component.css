@@ -1,0 +1,82 @@
+.container {
+  max-width: 750px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #f97316;
+  margin-bottom: 15px;
+}
+
+.table-header {
+  position: relative;
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-input {
+  width: 280px;
+  padding: 8px 40px 8px 16px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #f97316;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  font-size: 18px;
+  color: #999;
+  pointer-events: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 6px 15px rgba(249, 115, 22, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead tr {
+  background: linear-gradient(90deg, #f97316, #ea580c);
+  color: white;
+}
+
+th, td {
+  padding: 14px 20px;
+  text-align: left;
+}
+
+thead tr th:first-child {
+  border-top-left-radius: 12px;
+}
+
+thead tr th:last-child {
+  border-top-right-radius: 12px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+tbody tr:hover {
+  background-color: #fff4e6;
+  cursor: pointer;
+}
