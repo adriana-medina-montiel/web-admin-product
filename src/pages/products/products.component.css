@@ -80,3 +80,25 @@ tbody tr:hover {
   background-color: #fff4e6;
   cursor: pointer;
 }
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  margin-right: 5px;
+}
+
+.icon-btn.delete {
+  color: #dc3545; /* rojo bonito */
+}
+
+.icon-btn.edit {
+  color: #4880b9; /* azul tipo Bootstrap */
+}
+
+.icon-btn:hover {
+  opacity: 0.8;
+}

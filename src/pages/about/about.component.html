@@ -14,7 +14,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
+        
         <th>Producto</th>
         <th>Cantidad</th>
         <th>Ubicación</th>
@@ -23,7 +23,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of inventarioFiltrado">
-        <td>{{ item.id_inventario }}</td>
         <td>{{ item.producto }}</td>
         <td>{{ item.cantidad }}</td>
         <td>{{ item.ubicacion }}</td>

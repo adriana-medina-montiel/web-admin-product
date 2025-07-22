@@ -18,6 +18,7 @@
         <th>Rol</th>
         <th>Teléfono</th>
         <th>Email</th>
+        <th>Acciones</th> <!-- Nueva columna -->
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,16 @@
         <td>{{ miembro.rol }}</td>
         <td>{{ miembro.telefono }}</td>
         <td>{{ miembro.email }}</td>
+        <td class="text-center">
+            <button class="icon-btn delete" (click)="eliminarPersonal(miembro.id_personal)" title="Eliminar">
+              <i class="bi bi-trash"></i>
+            </button>
+            <button class="icon-btn edit" (click)="abrirModal(miembro)"  title="Editar" >
+              <i class="bi bi-pencil"></i>
+            </button>
+        </td>
+
+
       </tr>
     </tbody>
   </table>

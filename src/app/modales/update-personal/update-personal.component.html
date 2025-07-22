@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h5 class="modal-title">Editar Personal</h5>
+  <button type="button" class="close" (click)="modal.dismiss()">×</button>
+</div>
+
+<div class="modal-body">
+  <form>
+    <label>Nombre:</label>
+    <input [(ngModel)]="personal.nombre" name="nombre" />
+
+    <label>Rol:</label>
+    <input [(ngModel)]="personal.rol" name="rol" />
+
+    <label>Teléfono:</label>
+    <input [(ngModel)]="personal.telefono" name="telefono" />
+
+    <label>Email:</label>
+    <input [(ngModel)]="personal.email" name="email" />
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+  <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+</div>

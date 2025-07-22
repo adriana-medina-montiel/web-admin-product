@@ -1,6 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+
+//VISTAS DE GYM
 
 export interface Personal {
   id_personal: number;
@@ -44,7 +47,7 @@ export class ProductosService {
 }
 
 export interface Membresia {
-  id_membresia: number;
+  id_membrecia: number;
   nombre: string;
   precio: number;
   duracion: number; // en meses
@@ -82,3 +85,57 @@ export class InventarioService {
     return this.http.get<Inventario[]>(this.apiUrl);
   }
 }
+
+//deletes 
+@Injectable({
+  providedIn: 'root'
+})
+export class DeletePersonalService {
+  private apiUrl = 'http://localhost/api/delete_personal.php';
+
+  constructor(private http: HttpClient) {}
+
+  eliminarPersonal(id_personal: number): Observable<any> {
+    return this.http.post(this.apiUrl, { id_personal });
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DeleteProductoService {
+  private apiUrl = 'http://localhost/api/delete_producto.php';
+
+  constructor(private http: HttpClient) {}
+
+  eliminarProducto(id_producto: number): Observable<any> {
+    return this.http.post(this.apiUrl, { id_producto });
+  }
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class DeleteMembresiaService {
+  private apiUrl = 'http://localhost/api/delete_membrecia.php';
+
+  constructor(private http: HttpClient) {}
+
+  eliminarMembresia(id_membrecia: number): Observable<any> {
+    return this.http.post(this.apiUrl, { id_membrecia });
+  }
+}
+
+//updates
+@Injectable({
+  providedIn: 'root'
+})
+export class UpdatePersonalService {
+  private apiUrl = 'http://localhost/api/update_personal.php';
+
+  constructor(private http: HttpClient) {}
+
+  actualizarPersonal(personal: Personal): Observable<any> {
+    return this.http.post(this.apiUrl, personal);
+  }
+}
+
