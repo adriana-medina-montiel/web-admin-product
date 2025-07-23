@@ -2,13 +2,14 @@
   <h2>Productos del Gym</h2>
 
   <div class="table-header">
+    <button class="btn">Añadir Personal</button>
     <input
       type="text"
       placeholder="Buscar producto..."
       [(ngModel)]="terminoBusqueda"
       class="search-input"
     />
-    <span class="search-icon">&#128269;</span>
+   
   </div>
 
   <table *ngIf="productos.length > 0; else cargando">
@@ -31,7 +32,7 @@
             <button class="icon-btn delete" (click)="eliminarProducto(producto.id_producto)" title="Eliminar">
               <i class="bi bi-trash"></i>
             </button>
-            <button class="icon-btn edit" title="Editar">
+            <button class="icon-btn edit" title="Editar" (click)="abrirModal(producto)">
               <i class="bi bi-pencil"></i>
             </button>
         </td>

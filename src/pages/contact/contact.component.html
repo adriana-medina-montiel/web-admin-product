@@ -2,13 +2,15 @@
   <h2>Personal del Gym</h2>
 
   <div class="table-header">
-    <input
-      type="text"
-      placeholder="Buscar personal..."
-      [(ngModel)]="terminoBusqueda"
-      class="search-input"
-    />
-    <span class="search-icon">&#128269;</span>
+    <button class="btn">Añadir Personal</button>
+     <i class="fas fa-search search-icon"></i>
+      <input
+        type="text"
+        placeholder="Buscar personal..."
+        [(ngModel)]="terminoBusqueda"
+        class="search-input"
+      />
+    
   </div>
 
   <table *ngIf="personal.length > 0; else cargando">

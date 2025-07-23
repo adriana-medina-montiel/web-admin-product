@@ -3,6 +3,7 @@ import { DeleteProductoService, Producto, ProductosService } from '../../app/ser
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateProductsComponent } from '../../app/modales/update-products/update-products.component';
 
 
 @Component({
@@ -46,4 +47,20 @@ export class ProductsComponent implements OnInit {
     }
    
   }
+  abrirModal(producto: Producto): void {
+  
+  const modalRef = this.modalService.open(UpdateProductsComponent);
+  modalRef.componentInstance.producto = producto;
+
+  modalRef.result.then((result) => {
+    if (result === 'guardado') {
+      this.productosService.obtenerProductos().subscribe(data => {
+        this.productos = data;
+      });
+    }
+  }, (reason) => {
+    console.log('Modal dismissed:', reason);
+  });
+}
+
 }

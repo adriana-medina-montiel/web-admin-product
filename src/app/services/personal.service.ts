@@ -138,4 +138,24 @@ export class UpdatePersonalService {
     return this.http.post(this.apiUrl, personal);
   }
 }
+@Injectable({ providedIn: 'root' })
+export class UpdateProductoService {
+  private url = 'http://localhost/api/update_producto.php';
+
+  constructor(private http: HttpClient) {}
+
+  actualizarProducto(producto: Producto): Observable<any> {
+    const body = {
+      _id_producto: producto.id_producto,
+      _nombre: producto.nombre,
+      _categoria: producto.categoria,
+      _precio: producto.precio,
+      _stock: producto.stock
+    };
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(this.url, body, { headers });
+  }
+}
 
