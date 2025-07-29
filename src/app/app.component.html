@@ -1,10 +1,19 @@
 <nav>
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a> |
-  <a routerLink="/about" routerLinkActive="active">Inventario</a> |
-  <a routerLink="/contact" routerLinkActive="active">personal</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a> 
+  <a routerLink="/about" routerLinkActive="active">Inventario</a>
+  <a routerLink="/contact" routerLinkActive="active">Personal</a>
   <a routerLink="/products" routerLinkActive="active">Productos</a>
   <a routerLink="/membrecias" routerLinkActive="active">Membrecias</a>
-</nav>
 
+  <!-- menu desplegable usuarion -->
+  <div class="dropdown" (click)="toggleDropdown()" tabindex="0" (blur)="closeDropdown()">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-content" [class.show]="dropdownOpen">
+      <a routerLink="/minutafuncion">Perfil</a>
+      <a (click)="cerrarSesion()">Cerrar sesión</a>
+      <a routerLink="/configuracion">Configuración</a>
+    </div>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
