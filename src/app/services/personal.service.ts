@@ -158,4 +158,30 @@ export class UpdateProductoService {
     return this.http.post(this.url, body, { headers });
   }
 }
+export interface Membresia {
+  id_membrecia: number;
+  nombre: string;
+  precio: number;
+  duracion: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UpdateMembreciasService {
+  private apiUrl = 'http://localhost/api/update_membrecia.php';
+
+  constructor(private http: HttpClient) {}
+
+  actualizarMembresia(membresia: Membresia): Observable<any> {
+    const formData = new FormData();
+    formData.append('id_membresia_', membresia.id_membrecia.toString());
+    formData.append('nombre_', membresia.nombre);
+    formData.append('precio_', membresia.precio.toString());
+    formData.append('duracion_', membresia.duracion.toString());
+
+    return this.http.post(this.apiUrl, formData);
+  }
+}
+
 

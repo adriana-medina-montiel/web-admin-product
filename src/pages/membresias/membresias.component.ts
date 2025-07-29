@@ -3,6 +3,7 @@ import { DeleteMembresiaService, Membresia, MembresiasService } from '../../app/
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateMembreciasComponent } from '../../app/modales/update-membrecias/update-membrecias.component';
 
 
 @Component({
@@ -45,4 +46,16 @@ export class MembresiasComponent implements OnInit {
       });
     }
   }
+  abrirModal(membresia: Membresia): void {
+    const modalRef = this.modalService.open(UpdateMembreciasComponent, { centered: true });
+    modalRef.componentInstance.membresia = membresia;
+    modalRef.result.then((result) => {
+      if (result === 'actualizar') {
+        this.ngOnInit(); // Actualiza la lista de membresías
+      }
+    }, (reason) => {
+      console.log('Modal dismissed with reason:', reason);
+    });
+  }
+
 }

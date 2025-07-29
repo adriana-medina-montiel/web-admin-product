@@ -2,6 +2,7 @@
   <h2>Membresías del Gym</h2>
 
   <div class="table-header">
+    <button class="btn">Añadir Membresía</button>
     <input
       type="text"
       placeholder="Buscar membresía..."
@@ -29,7 +30,7 @@
           <button class="icon-btn delete" (click)="elimninarMembresia(m.id_membrecia)" title="Eliminar">
             <i class="bi bi-trash"></i>
           </button>
-          <button class="icon-btn edit" title="Editar">
+          <button class="icon-btn edit" title="Editar" (click)="abrirModal(m)">
             <i class="bi bi-pencil"></i>
           </button>
       </tr>
