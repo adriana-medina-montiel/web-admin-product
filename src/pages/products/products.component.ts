@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductsComponent } from '../../app/modales/update-products/update-products.component';
+import { InsertProdcutosComponent } from '../../app/modales/insert-prodcutos/insert-prodcutos.component';
 
 
 @Component({
@@ -61,6 +62,20 @@ export class ProductsComponent implements OnInit {
   }, (reason) => {
     console.log('Modal dismissed:', reason);
   });
-}
+ }
+ abrirModalInsertar(): void {
+  const modalRef = this.modalService.open(InsertProdcutosComponent, { size: 'lg' });
+
+  modalRef.result.then((result) => {
+    if (result === 'guardado') {
+      // refrescar lista después de insertar
+      this.productosService.obtenerProductos().subscribe((data: any[]) => {
+        this.productos = data;
+      });
+    }
+  }).catch((reason) => {
+    console.log('Modal insert dismissed:', reason);
+  });
+ }
 
 }

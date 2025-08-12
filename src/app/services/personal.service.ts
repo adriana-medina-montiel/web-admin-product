@@ -184,4 +184,53 @@ export class UpdateMembreciasService {
   }
 }
 
+//insert
+@Injectable({
+  providedIn: 'root'
+})
+export class InsertProductoService {
+  private apiUrl = 'http://localhost/api/insert_producto.php';
+
+  constructor(private http: HttpClient) {}
+
+  insertarProducto(producto: Producto): Observable<any> {
+    const body = {
+      nombre: producto.nombre,
+      categoria: producto.categoria,
+      precio: producto.precio,
+      stock: producto.stock
+    };
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(this.apiUrl, body, { headers });
+  }
+}
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class InsertPersonalService {
+  private apiUrl = 'http://localhost/api/insert_personal.php';
+
+  constructor(private http: HttpClient) {}
+
+  insertarPersonal(personal: Personal): Observable<any> {
+    const body = {
+      nombre: personal.nombre,
+      rol: personal.rol,
+      telefono: personal.telefono,
+      email: personal.email
+    };
+
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(this.apiUrl, body, { headers });
+  }
+}
+
+
+
+
 

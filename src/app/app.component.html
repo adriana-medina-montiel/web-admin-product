@@ -1,15 +1,25 @@
 <nav>
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a> 
+  <!-- Dropdown en Inicio -->
+  <div class="dropdown" (click)="toggleInicioDropdown()" tabindex="0" (blur)="closeInicioDropdown()">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-content" [class.show]="inicioDropdownOpen">
+      <a routerLink="/clientes">Clientes</a>
+      <a routerLink="/novedades">Novedades</a>
+      <a routerLink="/contacto">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Enlaces normales -->
   <a routerLink="/about" routerLinkActive="active">Inventario</a>
   <a routerLink="/contact" routerLinkActive="active">Personal</a>
   <a routerLink="/products" routerLinkActive="active">Productos</a>
   <a routerLink="/membrecias" routerLinkActive="active">Membrecias</a>
 
-  <!-- menu desplegable usuarion -->
-  <div class="dropdown" (click)="toggleDropdown()" tabindex="0" (blur)="closeDropdown()">
+  <!-- Dropdown de usuario -->
+  <div class="dropdown" (click)="toggleUsuarioDropdown()" tabindex="0" (blur)="closeUsuarioDropdown()">
     <button class="dropbtn">☰</button>
-    <div class="dropdown-content" [class.show]="dropdownOpen">
-      <a routerLink="/minutafuncion">Perfil</a>
+    <div class="dropdown-content" [class.show]="usuarioDropdownOpen">
+      <a routerLink="/perfil">Perfil</a>
       <a (click)="cerrarSesion()">Cerrar sesión</a>
       <a routerLink="/configuracion">Configuración</a>
     </div>

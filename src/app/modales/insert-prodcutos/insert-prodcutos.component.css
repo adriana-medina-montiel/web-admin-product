@@ -1,0 +1,133 @@
+/* --- Base Styles for the Modal --- */
+.custom-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Para asegurar que esté por encima de otros elementos */
+}
+
+.custom-modal {
+    background-color: #ffffff; /* Fondo blanco para el modal */
+    border-radius: 12px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.07); /* Sombra suave para profundidad */
+    width: 90%; /* Ancho responsivo */
+    max-width: 400px; /* Ancho máximo para pantallas grandes */
+    overflow: hidden; /* Asegura que el contenido respete los bordes redondeados */
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif; /* Fuente moderna y limpia */
+    color: #333333; /* Color de texto general */
+}
+
+/* --- Header Styles --- */
+.modal-header.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px; /* Espaciado interno */
+    border-bottom: 1px solid #f0f0f0; /* Línea divisoria sutil */
+    background-color: #ffffff;
+}
+
+.modal-header .modal-title {
+    margin: 0;
+    font-size: 1.4rem; /* Tamaño del título */
+    font-weight: 600; /* Semi-bold para el título */
+    color: #333333;
+}
+
+.modal-header .close {
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Tamaño de la "x" */
+    line-height: 1;
+    cursor: pointer;
+    color: #999999; /* Color de la "x" */
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.modal-header .close:hover {
+    color: #333333; /* Cambia de color al pasar el mouse */
+}
+
+/* --- Body Styles (Form) --- */
+.modal-body.custom-body {
+    padding: 25px; /* Espaciado interno */
+}
+
+.modal-body.custom-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada par de label-input */
+}
+
+.modal-body.custom-body label {
+    font-size: 0.95rem; /* Tamaño de la etiqueta */
+    font-weight: 500; /* Peso de la fuente para las etiquetas */
+    margin-bottom: 5px; /* Espacio entre label e input */
+    color: #555555; /* Color de la etiqueta */
+    display: block; /* Asegura que la etiqueta tome su propia línea */
+}
+
+.modal-body.custom-body input {
+    width: calc(100% - 20px); /* Ancho del input con padding */
+    padding: 12px 10px; /* Espaciado interno del input */
+    border: 1px solid #e0e0e0; /* Borde sutil por defecto */
+    border-radius: 8px; /* Bordes redondeados para inputs */
+    font-size: 1rem; /* Tamaño de fuente del input */
+    color: #333333; /* Color del texto del input */
+    background-color: #f8f8f8; /* Fondo ligeramente gris para inputs */
+    outline: none; /* Eliminar el contorno por defecto al enfocar */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-body.custom-body input:focus {
+    border-color: #ff8c00; /* Borde naranja al enfocar (naranja profesional) */
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2); /* Sombra suave naranja al enfocar */
+    background-color: #ffffff; /* Fondo blanco al enfocar */
+}
+
+/* --- Footer Styles --- */
+.modal-footer.custom-footer {
+    display: flex;
+    justify-content: flex-end; /* Alinear botones a la derecha */
+    gap: 15px; /* Espacio entre botones */
+    padding: 20px 25px; /* Espaciado interno */
+    border-top: 1px solid #f0f0f0; /* Línea divisoria sutil */
+    background-color: #ffffff;
+}
+
+.modal-footer .btn {
+    padding: 12px 25px; /* Espaciado interno de los botones */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados para los botones */
+    font-size: 1rem;
+    font-weight: 600; /* Semi-bold para el texto de los botones */
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-footer .btn-cancel {
+    background-color: #e0e0e0; /* Gris suave para Cancelar */
+    color: #555555; /* Texto oscuro para Cancelar */
+}
+
+.modal-footer .btn-cancel:hover {
+    background-color: #d0d0d0; /* Gris un poco más oscuro al pasar el mouse */
+}
+
+.modal-footer .btn-save {
+    background-color: #ea580c; /* Naranja profesional para Guardar */
+    color: #ffffff; /* Texto blanco para Guardar */
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.2); /* Sombra suave para Guardar */
+}
+
+.modal-footer .btn-save:hover {
+    background-color: #e67e00; /* Naranja ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.3);
+}

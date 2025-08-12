@@ -9,6 +9,6 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'products', loadComponent: () => import('../pages/products/products.component').then(m => m.ProductsComponent) },
   { path: 'membrecias', loadComponent: () => import('../pages/membresias/membresias.component').then(m => m.MembresiasComponent) },
-  { path: 'minutafuncion', loadComponent: () => import('../pages/minuta/minuta-funciones/minuta-funciones.component').then(m => m.MinutaFuncionesComponent) },
+  { path: 'clientes', loadComponent: () => import('../pages/clientes/clientes.component').then(m => m.ClientesComponent) },
 
 ];

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MinutaFuncionesComponent } from './minuta-funciones.component';
+import { InsertMembreciaComponent } from './insert-membrecia.component';
 
-describe('MinutaFuncionesComponent', () => {
-  let component: MinutaFuncionesComponent;
-  let fixture: ComponentFixture<MinutaFuncionesComponent>;
+describe('InsertMembreciaComponent', () => {
+  let component: InsertMembreciaComponent;
+  let fixture: ComponentFixture<InsertMembreciaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MinutaFuncionesComponent]
+      imports: [InsertMembreciaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MinutaFuncionesComponent);
+    fixture = TestBed.createComponent(InsertMembreciaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

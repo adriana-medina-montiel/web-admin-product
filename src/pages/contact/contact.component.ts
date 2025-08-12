@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdatePersonalComponent } from '../../app/modales/update-personal/update-personal.component';
+import { InsertPersonalComponent } from '../../app/modales/insert-personal/insert-personal.component';
 
 @Component({
   selector: 'app-contact',
@@ -56,7 +57,23 @@ export class ContactComponent implements OnInit {
       });
     }
   }).catch(() => {});
-}
+ }
+
+
+ abrirModalInsertarPersonal() {
+  const modalRef = this.modalService.open(InsertPersonalComponent, { size: 'lg' });
+
+  modalRef.result.then((result) => {
+    if (result === 'guardado') {
+      // Recarga la lista de personal
+      this.personalService.obtenerPersonal().subscribe(data => {
+        this.personal = data;  // asumiendo que tu lista se llama 'personales'
+      });
+    }
+  }).catch((reason) => {
+    console.log('Modal dismissed:', reason);
+  });
+ }
 
 
   

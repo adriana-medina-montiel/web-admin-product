@@ -10,21 +10,27 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'web-admin-product';
+  inicioDropdownOpen = false;
+usuarioDropdownOpen = false;
 
-  dropdownOpen = false;
-
-toggleDropdown() {
-  this.dropdownOpen = !this.dropdownOpen;
+toggleInicioDropdown() {
+  this.inicioDropdownOpen = !this.inicioDropdownOpen;
 }
 
-closeDropdown() {
-  // Para cerrar cuando el div pierde foco (clic afuera)
-  this.dropdownOpen = false;
+closeInicioDropdown() {
+  this.inicioDropdownOpen = false;
+}
+
+toggleUsuarioDropdown() {
+  this.usuarioDropdownOpen = !this.usuarioDropdownOpen;
+}
+
+closeUsuarioDropdown() {
+  this.usuarioDropdownOpen = false;
 }
 
 cerrarSesion() {
-  // Aquí va tu lógica para cerrar sesión
   console.log('Sesión cerrada');
-  // Por ejemplo, redirigir o limpiar datos
 }
+
 }

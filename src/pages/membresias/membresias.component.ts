@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateMembreciasComponent } from '../../app/modales/update-membrecias/update-membrecias.component';
+import { InsertMembreciaComponent } from '../../app/modales/insert-membrecia/insert-membrecia.component';
 
 
 @Component({
@@ -57,5 +58,6 @@ export class MembresiasComponent implements OnInit {
       console.log('Modal dismissed with reason:', reason);
     });
   }
+
 
 }
