@@ -1,0 +1,50 @@
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Ventas de Productos Pequeños</h2>
+  </div>
+
+  <table *ngIf="productos.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productos">
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.precio | currency }}</td>
+        <td>{{ p.cantidad }}</td>
+        <td class="acciones">
+          <button class="btn-add" (click)="abrirModal(p)">Vender</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando productos...</p>
+  </ng-template>
+</div>
+
+<!-- Modal adaptado -->
+<div class="custom-modal-backdrop" *ngIf="modalVisible">
+  <div class="custom-modal">
+    <div class="modal-header custom-header">
+      <h5 class="modal-title">Método de pago</h5>
+      <button type="button" class="close" (click)="modalVisible=false">×</button>
+    </div>
+    <div class="modal-body">
+      <p>Producto: <strong>{{ productoSeleccionado?.nombre }}</strong></p>
+      <p>Precio: {{ productoSeleccionado?.precio | currency }}</p>
+      <div class="modal-buttons">
+        <button class="btn-outline" (click)="registrarVenta('Tarjeta')">Tarjeta</button>
+        <button class="btn-outline" (click)="registrarVenta('Efectivo')">Efectivo</button>
+      </div>
+    </div>
+  </div>
+</div>

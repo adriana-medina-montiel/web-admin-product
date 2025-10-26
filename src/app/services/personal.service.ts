@@ -86,6 +86,25 @@ export class InventarioService {
   }
 }
 
+export interface Cliente {
+  id_cliente: number;
+  nombre: string;
+  correo: string;
+  password: string;
+  nombre_membrecia: string;
+}
+@Injectable({  providedIn: 'root'})
+export class clientesService {
+  private apiUrl = 'http://localhost/api/get_cliente.php';
+
+  constructor(private http: HttpClient) {}
+
+  obtenerClientes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+}
+
+
 //deletes 
 @Injectable({
   providedIn: 'root'
@@ -122,6 +141,16 @@ export class DeleteMembresiaService {
 
   eliminarMembresia(id_membrecia: number): Observable<any> {
     return this.http.post(this.apiUrl, { id_membrecia });
+  }
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class DeleteClienteService {
+  private apiUrl = 'http://localhost/api/delete_cliente.php';
+  constructor(private http: HttpClient) {}
+  eliminarCliente(id_cliente: number): Observable<any> {
+    return this.http.post(this.apiUrl, { id_cliente });
   }
 }
 
@@ -184,6 +213,20 @@ export class UpdateMembreciasService {
   }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
+export class ClienteUpdateService {
+
+  private apiUrl = 'http://localhost/api/update_cliente.php';
+
+  constructor(private http: HttpClient) {}
+
+  actualizarCliente(cliente: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, cliente);
+  }
+}
+
 //insert
 @Injectable({
   providedIn: 'root'
@@ -230,7 +273,48 @@ export class InsertPersonalService {
   }
 }
 
+export interface ClienteInsert {
+  nombre: string;
+  correo: string;
+  password: string;
+  id_membrecia: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ClientesInsertService {
+
+  private apiUrl = 'http://localhost/api/insert_cliente.php';
+
+  constructor(private http: HttpClient) {}
+
+  registrarCliente(cliente: ClienteInsert): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<any>(this.apiUrl, cliente, { headers });
+  }
+}
 
 
+@Injectable({
+  providedIn: 'root'
+})
+export class VentasPService {
+  private apiUrl = 'http://localhost/api';
 
+  constructor(private http: HttpClient) {}
 
+  getProductos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/get_ventasP.php`);
+  }
+
+  registrarVenta(id: number, metodo: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/registrar_ventaP.php`, { id, metodo_pago: metodo });
+  }
+
+  getHistorial(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/get_historial_ventas.php`);
+  }
+}

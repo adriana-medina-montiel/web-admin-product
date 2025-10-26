@@ -1,15 +1,17 @@
-<div class="container">
-  <h2>Productos del Gym</h2>
-
-  <div class="table-header">
-    <button class="btn" (click)="abrirModalInsertar()" >Añadir Personal</button>
-    <input
-      type="text"
-      placeholder="Buscar producto..."
-      [(ngModel)]="terminoBusqueda"
-      class="search-input"
-    />
-   
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Productos del Gym</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+      <button class="btn-add" (click)="abrirModalInsertar()">Añadir Producto</button>
+    </div>
   </div>
 
   <table *ngIf="productos.length > 0; else cargando">
@@ -19,7 +21,7 @@
         <th>Categoría</th>
         <th>Precio (MXN)</th>
         <th>Stock</th>
-        <th class="text-center">Acciones</th> <!-- Nueva columna para acciones -->
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -28,21 +30,19 @@
         <td>{{ producto.categoria }}</td>
         <td>{{ producto.precio | currency:'MXN' }}</td>
         <td>{{ producto.stock }}</td>
-        <td class="text-center">
-            <button class="icon-btn delete" (click)="eliminarProducto(producto.id_producto)" title="Eliminar">
-              <i class="bi bi-trash"></i>
-            </button>
-            <button class="icon-btn edit" title="Editar" (click)="abrirModal(producto)">
-              <i class="bi bi-pencil"></i>
-            </button>
+        <td class="acciones">
+          <button class="icon-btn delete" (click)="eliminarProducto(producto.id_producto)">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" (click)="abrirModal(producto)">
+            <i class="bi bi-pencil"></i>
+          </button>
         </td>
-
       </tr>
     </tbody>
   </table>
 
   <ng-template #cargando>
-    <p style="text-align: center;">Cargando productos...</p>
+    <p style="text-align:center; padding: 20px;">Cargando productos...</p>
   </ng-template>
 </div>
-

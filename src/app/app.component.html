@@ -1,29 +1,47 @@
 <nav>
-  <!-- Dropdown en Inicio -->
-  <div class="dropdown" (click)="toggleInicioDropdown()" tabindex="0" (blur)="closeInicioDropdown()">
+  <!-- Menú desplegable izquierdo -->
+<div class="menu-izquierdo">
+  <div class="dropdown" (click)="toggleInicioDropdown()" tabindex="0">
     <button class="dropbtn">☰</button>
-    <div class="dropdown-content" [class.show]="inicioDropdownOpen">
-      <a routerLink="/clientes">Clientes</a>
-      <a routerLink="/novedades">Novedades</a>
-      <a routerLink="/contacto">Contacto</a>
+    <div class="dropdown-panel" [class.show]="inicioDropdownOpen">
+      <div class="dropdown-section">
+        <h4>Menú principal</h4>
+        <a routerLink="/clientes">Clientes</a>
+        <a routerLink="/ventas-p">Ventas Pequeñas</a>
+        <a routerLink="/grafica-ventas">graficas </a>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Enlaces normales -->
-  <a routerLink="/about" routerLinkActive="active">Inventario</a>
-  <a routerLink="/contact" routerLinkActive="active">Personal</a>
-  <a routerLink="/products" routerLinkActive="active">Productos</a>
-  <a routerLink="/membrecias" routerLinkActive="active">Membrecias</a>
 
-  <!-- Dropdown de usuario -->
-  <div class="dropdown" (click)="toggleUsuarioDropdown()" tabindex="0" (blur)="closeUsuarioDropdown()">
+
+  <!-- Enlaces principales centrados -->
+  <div class="nav-links">
+
+    <a routerLink="/home" routerLinkActive="active">Inicio</a>
+    <a routerLink="/about" routerLinkActive="active">Inventario</a>
+    <a routerLink="/contact" routerLinkActive="active">Personal</a>
+    <a routerLink="/products" routerLinkActive="active">Productos</a>
+    <a routerLink="/membrecias" routerLinkActive="active">Membrecías</a>
+  </div>
+
+  <!-- Menú desplegable derecho -->
+  <div class="menu-derecho">
+  <div class="dropdown" (click)="toggleUsuarioDropdown()" tabindex="0">
     <button class="dropbtn">☰</button>
-    <div class="dropdown-content" [class.show]="usuarioDropdownOpen">
-      <a routerLink="/perfil">Perfil</a>
-      <a (click)="cerrarSesion()">Cerrar sesión</a>
-      <a routerLink="/configuracion">Configuración</a>
+    <div class="dropdown-panel dropdown-right" [class.show]="usuarioDropdownOpen">
+      <div class="dropdown-section">
+        <h4>Opciones de usuario</h4>
+        <a routerLink="/perfil">Perfil</a>
+        <a (click)="cerrarSesion()">Cerrar sesión</a>
+        <a routerLink="/configuracion" class="highlight">Configuración</a>
+      </div>
     </div>
   </div>
+</div>
+
+
 </nav>
 
 <router-outlet></router-outlet>

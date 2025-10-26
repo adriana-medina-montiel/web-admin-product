@@ -1,16 +1,17 @@
-<div class="container">
-  <h2>Personal del Gym</h2>
-
-  <div class="table-header">
-    <button class="btn" (click)=" abrirModalInsertarPersonal() ">Añadir Personal</button>
-     <i class="fas fa-search search-icon"></i>
-      <input
-        type="text"
-        placeholder="Buscar personal..."
-        [(ngModel)]="terminoBusqueda"
-        class="search-input"
-      />
-    
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Personal del Gym</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar personal..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+      <button class="btn-add" (click)="abrirModalInsertarPersonal()">Añadir Personal</button>
+    </div>
   </div>
 
   <table *ngIf="personal.length > 0; else cargando">
@@ -20,7 +21,7 @@
         <th>Rol</th>
         <th>Teléfono</th>
         <th>Email</th>
-        <th>Acciones</th> <!-- Nueva columna -->
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -29,16 +30,14 @@
         <td>{{ miembro.rol }}</td>
         <td>{{ miembro.telefono }}</td>
         <td>{{ miembro.email }}</td>
-        <td class="text-center">
-            <button class="icon-btn delete" (click)="eliminarPersonal(miembro.id_personal)" title="Eliminar">
-              <i class="bi bi-trash"></i>
-            </button>
-            <button class="icon-btn edit" (click)="abrirModal(miembro)"  title="Editar" >
-              <i class="bi bi-pencil"></i>
-            </button>
+        <td class="acciones">
+          <button class="icon-btn delete" (click)="eliminarPersonal(miembro.id_personal)">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" (click)="abrirModal(miembro)">
+            <i class="bi bi-pencil"></i>
+          </button>
         </td>
-
-
       </tr>
     </tbody>
   </table>
