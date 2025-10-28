@@ -12,5 +12,8 @@ export const routes: Routes = [
   { path: 'clientes', loadComponent: () => import('../pages/clientes/clientes.component').then(m => m.ClientesComponent) },
   { path: 'ventas-p', loadComponent: () => import('../pages/ventas-p/ventas-p.component').then(m => m.VentasPComponent) },
   { path: 'grafica-ventas', loadComponent: () => import('../pages/grafica-ventas/grafica-ventas.component').then(m => m.GraficaVentasComponent) },
+  { path: 'coach', loadComponent: () => import('../pages/coach/coach.component').then(m => m.CoachComponent) },
+  { path: 'activos', loadComponent: () => import('../pages/activos/activos.component').then(m => m.ActivosComponent) },
+
 
 ];
