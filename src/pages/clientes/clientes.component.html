@@ -1,0 +1,42 @@
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Clientes</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar cliente..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+      <button class="btn-add" (click)="abrirModalInsertar()">Añadir Cliente</button>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Membresía</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientesFiltrados">
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.correo }}</td>
+        <td>{{ cliente.nombre_membrecia }}</td>
+        <td class="acciones">
+          <button class="icon-btn delete" (click)="eliminarCliente(cliente.id_cliente)">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" (click)="abrirModalActualizar(cliente)">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

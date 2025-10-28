@@ -1,1 +1,38 @@
-<p>about works!</p>
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Inventario</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar inventario..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+    </div>
+  </div>
+
+  <table *ngIf="inventarioFiltrado.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Ubicación</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventarioFiltrado">
+        <td>{{ item.producto }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.ubicacion }}</td>
+        <td>{{ item.fecha }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando inventario...</p>
+  </ng-template>
+</div>

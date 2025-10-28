@@ -1,7 +1,49 @@
 <nav>
-  <a routerLink="/">Inicio</a> |
-  <a routerLink="/about">Acerca de</a> |
-  <a routerLink="/contact">Contacto</a>
+  <!-- Menú desplegable izquierdo -->
+<div class="menu-izquierdo">
+  <div class="dropdown" (click)="toggleInicioDropdown()" tabindex="0">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-panel" [class.show]="inicioDropdownOpen">
+      <div class="dropdown-section">
+        <h4>Menú principal</h4>
+        <a routerLink="/clientes">Clientes</a>
+        <a routerLink="/ventas-p">Ventas Pequeñas</a>
+        <a routerLink="/grafica-ventas">graficas </a>
+        <a routerLink="/coach">coach </a>
+        <a routerLink="/activos">activos </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Enlaces principales centrados -->
+  <div class="nav-links">
+
+    <a routerLink="/home" routerLinkActive="active">Inicio</a>
+    <a routerLink="/about" routerLinkActive="active">Inventario</a>
+    <a routerLink="/contact" routerLinkActive="active">Personal</a>
+    <a routerLink="/products" routerLinkActive="active">Productos</a>
+    <a routerLink="/membrecias" routerLinkActive="active">Membrecías</a>
+  </div>
+
+  <!-- Menú desplegable derecho -->
+  <div class="menu-derecho">
+  <div class="dropdown" (click)="toggleUsuarioDropdown()" tabindex="0">
+    <button class="dropbtn">☰</button>
+    <div class="dropdown-panel dropdown-right" [class.show]="usuarioDropdownOpen">
+      <div class="dropdown-section">
+        <h4>Opciones de usuario</h4>
+        <a routerLink="/perfil">Perfil</a>
+        <a (click)="cerrarSesion()">Cerrar sesión</a>
+        <a routerLink="/configuracion" class="highlight">Configuración</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </nav>
 
 <router-outlet></router-outlet>

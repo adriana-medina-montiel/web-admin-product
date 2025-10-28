@@ -1,0 +1,48 @@
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Productos del Gym</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar producto..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+      <button class="btn-add" (click)="abrirModalInsertar()">Añadir Producto</button>
+    </div>
+  </div>
+
+  <table *ngIf="productos.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio (MXN)</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productosFiltrados">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.categoria }}</td>
+        <td>{{ producto.precio | currency:'MXN' }}</td>
+        <td>{{ producto.stock }}</td>
+        <td class="acciones">
+          <button class="icon-btn delete" (click)="eliminarProducto(producto.id_producto)">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" (click)="abrirModal(producto)">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando productos...</p>
+  </ng-template>
+</div>

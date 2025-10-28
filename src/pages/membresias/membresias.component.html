@@ -1,0 +1,46 @@
+<div class="clientes-card">
+  <div class="clientes-header">
+    <h2>Membresías del Gym</h2>
+    <div class="clientes-search-add">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Buscar membresía..."
+          [(ngModel)]="terminoBusqueda"
+        />
+      </div>
+      <button class="btn-add">Añadir Membresía</button>
+    </div>
+  </div>
+
+  <table *ngIf="membresias.length > 0; else cargando">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio (MXN)</th>
+        <th>Duración (meses)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of membresiasFiltradas">
+        <td>{{ m.nombre }}</td>
+        <td>{{ m.precio | currency:'MXN' }}</td>
+        <td>{{ m.duracion }}</td>
+        <td class="acciones">
+          <button class="icon-btn delete" (click)="elimninarMembresia(m.id_membrecia)">
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" (click)="abrirModal(m)">
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #cargando>
+    <p style="text-align:center; padding: 20px;">Cargando membresías...</p>
+  </ng-template>
+</div>

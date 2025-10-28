@@ -1,0 +1,146 @@
+/* --- Asegurar que el html y body usen todo el alto y no tengan scroll --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* --- Backdrop centrado en toda la pantalla --- */
+.custom-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1050;
+}
+
+/* --- Modal centrado con transform --- */
+.custom-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.07);
+    width: 90%;
+    max-width: 400px;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+    color: #333333;
+    overflow: hidden;
+    z-index: 1060;
+}
+
+/* --- Header Styles --- */
+.modal-header.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+.modal-header .modal-title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.modal-header .close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #999999;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.modal-header .close:hover {
+    color: #333333;
+}
+
+/* --- Body Styles (Form) --- */
+.modal-body.custom-body {
+    padding: 25px;
+}
+
+.modal-body.custom-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-body.custom-body label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555555;
+    display: block;
+}
+
+.modal-body.custom-body input {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    background-color: #f8f8f8;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-body.custom-body input:focus {
+    border-color: #ff8c00;
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+    background-color: #ffffff;
+}
+
+/* --- Footer Styles --- */
+.modal-footer.custom-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 20px 25px;
+    border-top: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+.modal-footer .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-footer .btn-cancel {
+    background-color: #e0e0e0;
+    color: #555555;
+}
+
+.modal-footer .btn-cancel:hover {
+    background-color: #d0d0d0;
+}
+
+.modal-footer .btn-save {
+    background-color: #ea580c;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.2);
+}
+
+.modal-footer .btn-save:hover {
+    background-color: #e67e00;
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.3);
+}
