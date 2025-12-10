@@ -1,0 +1,163 @@
+<div class="map-wrap">
+  <header class="map-header">
+    <h2>Mapa Interactivo del Gym</h2>
+    <div class="map-actions">
+      <button (click)="simulateUpdate()" class="btn small">Actualización</button>
+    </div>
+  </header>
+
+  <div class="map-area">
+    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" class="svg-map"
+         (mousemove)="onAreaMove($event)">
+
+      <!-- fondo -->
+      <rect x="0" y="0" width="1200" height="600" fill="#0f0f0f"></rect>
+
+      <!-- CARDIO AREA -->
+      <g class="area-group" 
+         (mouseenter)="onAreaEnter('cardio', $event)" 
+         (mouseleave)="onAreaLeave()" 
+         (click)="onAreaClick('cardio')">
+
+        <rect x="40" y="40" rx="14" ry="14" width="420" height="220"
+              [attr.fill]="areaColor(areas[0].status)"
+              [attr.opacity]="areaOpacity(areas[0])"
+              class="area-rect"></rect>
+
+        <!-- ICONO CARDIO -->
+        <image 
+          href="https://img.freepik.com/vector-gratis/ilustracion-mujer-corriendo_1051-669.jpg?semt=ais_hybrid&w=740&q=80"
+          x="350" y="110" width="130" height="90" opacity="0.85">
+        </image>
+
+        <text x="70" y="80" class="area-title">{{ areas[0].name }}</text>
+        <text x="70" y="110" class="area-sub">{{ areas[0].occupants }} / {{ areas[0].capacity }}</text>
+      </g>
+
+      <!-- PESAS -->
+      <g class="area-group" 
+         (mouseenter)="onAreaEnter('pesas', $event)" 
+         (mouseleave)="onAreaLeave()" 
+         (click)="onAreaClick('pesas')">
+
+        <rect x="470" y="40" rx="14" ry="14" width="320" height="220"
+              [attr.fill]="areaColor(areas[1].status)"
+              [attr.opacity]="areaOpacity(areas[1])"
+              class="area-rect"></rect>
+
+        <!-- ICONO PESAS -->
+        <image 
+          href="https://img.freepik.com/vector-premium/linda-mujer-sosteniendo-ilustracion-dibujos-animados-pesas_274619-735.jpg"
+          x="690" y="110" width="110" height="80" opacity="0.9">
+        </image>
+
+        <text x="500" y="80" class="area-title">{{ areas[1].name }}</text>
+        <text x="500" y="110" class="area-sub">{{ areas[1].occupants }} / {{ areas[1].capacity }}</text>
+      </g>
+
+      <!-- BOX -->
+      <g class="area-group" 
+         (mouseenter)="onAreaEnter('box', $event)" 
+         (mouseleave)="onAreaLeave()" 
+         (click)="onAreaClick('box')">
+
+        <rect x="820" y="40" rx="14" ry="14" width="320" height="220"
+              [attr.fill]="areaColor(areas[2].status)"
+              [attr.opacity]="areaOpacity(areas[2])"
+              class="area-rect"></rect>
+
+        <!-- ICONO BOX -->
+        <image 
+          href="https://img.freepik.com/vector-premium/ilustracion-color-plano-entrenamiento-boxeo-deportista-saco-boxeo-atleta-haciendo-ejercicio-gimnasio-mancuernas-personajes-dibujos-animados-2d-boxeador-profesional-sala-club-fondo_151150-3869.jpg"
+          x="1030" y="110" width="110" height="90" opacity="0.85">
+        </image>
+
+        <text x="850" y="80" class="area-title">{{ areas[2].name }}</text>
+        <text x="850" y="110" class="area-sub">{{ areas[2].occupants }} / {{ areas[2].capacity }}</text>
+      </g>
+
+      <!-- YOGA -->
+      <g class="area-group" 
+         (mouseenter)="onAreaEnter('yoga', $event)" 
+         (mouseleave)="onAreaLeave()" 
+         (click)="onAreaClick('yoga')">
+
+        <rect x="40" y="300" rx="14" ry="14" width="520" height="240"
+              [attr.fill]="areaColor(areas[3].status)"
+              [attr.opacity]="areaOpacity(areas[3])"
+              class="area-rect"></rect>
+
+        <!-- ICONO YOGA -->
+        <image 
+          href="https://img.freepik.com/vector-gratis/ilustracion-plana-celebracion-dia-internacional-yoga_23-2150377565.jpg?semt=ais_hybrid&w=740&q=80"
+          x="430" y="380" width="130" height="90" opacity="0.8">
+        </image>
+
+        <text x="70" y="340" class="area-title">{{ areas[3].name }}</text>
+        <text x="70" y="370" class="area-sub">{{ areas[3].occupants }} / {{ areas[3].capacity }}</text>
+      </g>
+
+      <!-- RECEPCION -->
+      <g class="area-group" 
+         (mouseenter)="onAreaEnter('recepcion', $event)" 
+         (mouseleave)="onAreaLeave()" 
+         (click)="onAreaClick('recepcion')">
+
+        <rect x="580" y="300" rx="14" ry="14" width="560" height="160"
+              [attr.fill]="areaColor(areas[4].status)"
+              [attr.opacity]="areaOpacity(areas[4])"
+              class="area-rect"></rect>
+
+        <!-- ICONO RECEPCIÓN -->
+        <image 
+          href="https://img.freepik.com/vector-premium/recepcion-gimnasio-interior-gimnasio-equipo-entrenamiento_313242-220.jpg"
+          x="1000" y="330" width="130" height="90" opacity="0.85">
+        </image>
+
+        <text x="610" y="340" class="area-title">{{ areas[4].name }}</text>
+        <text x="610" y="370" class="area-sub">{{ areas[4].occupants }} / {{ areas[4].capacity }}</text>
+      </g>
+
+    </svg>
+
+    <!-- Tooltip -->
+    <div class="map-tooltip" *ngIf="tooltip.show" 
+         [ngStyle]="{'left.px': tooltip.x, 'top.px': tooltip.y}">
+      {{ tooltip.text }}
+    </div>
+  </div>
+
+  <!-- Modal de detalle -->
+  <div class="area-modal" *ngIf="selectedArea">
+    <div class="modal-card">
+      <button class="close-x" (click)="closeDetail()">✕</button>
+      <h3>{{ selectedArea.name }}</h3>
+
+      <div class="modal-row">
+        <strong>Estado:</strong>
+        <span [style.color]="areaColor(selectedArea.status)">
+          {{ selectedArea.status | titlecase }}
+        </span>
+      </div>
+
+      <div class="modal-row">
+        <strong>Aforo:</strong> {{ selectedArea.occupants }} / {{ selectedArea.capacity }}
+      </div>
+
+      <div class="modal-row" *ngIf="selectedArea.coach">
+        <strong>Coach:</strong> {{ selectedArea.coach }}
+      </div>
+
+      <div class="modal-row" *ngIf="selectedArea.nextClass">
+        <strong>Siguiente clase:</strong> {{ selectedArea.nextClass.dia }} — {{ selectedArea.nextClass.hora }}
+      </div>
+
+      <p class="modal-desc">{{ selectedArea.description }}</p>
+
+      <div class="modal-actions">
+        <button class="btn" (click)="closeDetail()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+</div>

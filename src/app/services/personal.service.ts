@@ -318,3 +318,34 @@ export class VentasPService {
     return this.http.get(`${this.apiUrl}/get_historial_ventas.php`);
   }
 }
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CoachesService {
+
+    private apiURL = "http://localhost/api/clases_por_coach.php"; 
+  private apiURLCoaches = "http://localhost/api/get_personal.php";
+
+  constructor(private http: HttpClient) {}
+
+  getCoaches(): Observable<any> {
+    return this.http.get(this.apiURLCoaches);
+  }
+
+  getClasesPorCoach(id_personal: number): Observable<any> {
+    const formData = new FormData();
+    formData.append("id_personal", id_personal.toString());
+    return this.http.post(this.apiURL, formData);
+  }
+
+  // NUEVO: obtener clases de un coach para un día específico
+  getClasesPorCoachDia(id_personal: number, dia: string): Observable<any> {
+    const formData = new FormData();
+    formData.append("id_personal", id_personal.toString());
+    // mandamos POST y el día por query string (tu PHP ya lo soporta)
+    return this.http.post(`${this.apiURL}?dia=${dia}`, formData);
+  }
+
+}
+  

@@ -15,7 +15,7 @@ export class GraficaVentasComponent implements OnInit {
 
   ngOnInit() {
     this.ventasService.getHistorial().subscribe((res: any) => {
-      const labels = res.map((v: any) => v.nombre);
+      const labels = res.map((v: any) => v.producto);
       const datos = res.map((v: any) => v.total_vendidos);
 
       new Chart('graficaVentas', {
