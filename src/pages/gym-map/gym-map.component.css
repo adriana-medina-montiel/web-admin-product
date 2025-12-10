@@ -1,0 +1,228 @@
+:host {
+  display: block;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #eee;
+}
+
+/* Contenedor general */
+.map-wrap {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+/* Header */
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.map-header h2 {
+  margin: 0;
+  color: #ff9d00;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* GRID de tarjetas */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Tarjeta */
+.map-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 18px 10px;
+  text-align: center;
+  cursor: pointer;
+
+  /* Animación inicial fade-in */
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeIn 0.6s ease forwards;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Animación aparición */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover glow neon */
+.map-card:hover {
+  transform: translateY(-7px) scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+  border-color: #ffb44d;
+}
+
+/* Imagen dentro de la tarjeta */
+.map-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+
+  /* Transición animada */
+  transition: transform 0.25s ease, filter 0.25s ease;
+
+  /* Pequeño fade */
+  opacity: 0;
+  animation: fadeInImg 0.6s ease forwards;
+}
+
+/* Fade-in de la imagen */
+@keyframes fadeInImg {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hover en la imagen */
+.map-card:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(255, 153, 0, 0.6));
+}
+
+/* Título */
+.map-card h4 {
+  margin-top: 12px;
+  color: #ff9d00;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* Subtítulo */
+.map-card p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .map-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .map-card img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* --- MODAL RESTAURADO Y MEJORADO --- */
+
+/* Fondo oscuro detrás del modal */
+.area-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* asegura estar arriba de todo */
+  animation: fadeModalBg 0.25s ease;
+}
+
+@keyframes fadeModalBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Tarjeta principal del modal */
+.modal-card {
+  width: 420px;
+  background: #111;
+  border-radius: 14px;
+  padding: 20px;
+  color: #eee;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+  position: relative;
+
+  /* animación de entrada */
+  transform: scale(0.9);
+  opacity: 0;
+  animation: modalPop 0.25s ease forwards;
+}
+
+@keyframes modalPop {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Botón X cerrar */
+.close-x {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #ff9d00;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.close-x:hover {
+  transform: scale(1.2);
+}
+
+/* Filas dentro del modal */
+.modal-row {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Texto descripción */
+.modal-desc {
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Botones */
+.btn {
+  background: #222;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #ff9d00, #ffb84d);
+  color: #000;
+  font-weight: bold;
+}
+
+.btn.primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .modal-card {
+    width: 90%;
+  }
+}

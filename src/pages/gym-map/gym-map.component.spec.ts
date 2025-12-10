@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActivosComponent } from './activos.component';
+import { GymMapComponent } from './gym-map.component';
 
-describe('ActivosComponent', () => {
-  let component: ActivosComponent;
-  let fixture: ComponentFixture<ActivosComponent>;
+describe('GymMapComponent', () => {
+  let component: GymMapComponent;
+  let fixture: ComponentFixture<GymMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ActivosComponent]
+      imports: [GymMapComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ActivosComponent);
+    fixture = TestBed.createComponent(GymMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

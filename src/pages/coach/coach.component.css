@@ -1,0 +1,152 @@
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ff9d00;
+  margin-bottom: 25px;
+}
+
+/* Lista de coaches */
+.coach-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Tarjeta */
+.coach-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  background: #797272;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.coach-card:hover {
+  transform: translateY(-4px);
+  background: #222;
+}
+
+/* Avatar */
+.coach-avatar {
+  width: 55px;
+  height: 55px;
+  background: #ff9d00;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Info */
+.coach-info h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.coach-info p {
+  margin: 4px 0;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Ver clases */
+.ver-btn {
+  margin-left: auto;
+  color: #ff9d00;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Detalle */
+.detalle {
+  margin-top: 30px;
+  padding: 25px;
+  background: #121212;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+/* Boton cerrar */
+.cerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff4f4f;
+  border: none;
+  padding: 5px 12px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cerrar:hover {
+  background: #ff7a7a;
+}
+
+/* Fecha controls */
+.fecha-select {
+  margin: 20px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fecha-select button {
+  background: #ff9d00;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: 0.2s;
+}
+
+.fecha-select button:hover {
+  transform: scale(1.05);
+}
+
+.fecha-select input[type="date"] {
+  background: #1b1b1b;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  color: #ff9d00;
+  padding-bottom: 10px;
+  font-size: 1rem;
+}
+
+td {
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  color: #ddd;
+  font-size: 0.95rem;
+}

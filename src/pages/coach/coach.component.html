@@ -1,16 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p> en esta pantalla se mostrara los coach que tienen clase durante las primeras 4 horas y lo cach que estan libres para las 
-        personas que quieran agendar una clase con ellos y o de nuevo ingreso 
-        api-coach
-    </p>
-    <p>prueba de slack</p>
-    <p>hola slack desde los cambios visibles de git con slAK </p>
-</body>
-</html>
+<h2>Coaches del Gimnasio</h2>
+
+<div class="coach-list">
+  <div *ngFor="let coach of coaches" class="coach-card" (click)="verClases(coach)">
+    
+    <div class="coach-avatar">
+      {{ coach.nombre.charAt(0) }}
+    </div>
+
+    <div class="coach-info">
+      <h3>{{ coach.nombre }}</h3>
+      <p>📧 {{ coach.email }}</p>
+    </div>
+
+    <div class="ver-btn">Ver clases →</div>
+
+  </div>
+</div>
+
+<!-- DETALLE -->
+<div *ngIf="coachSeleccionado" class="detalle">
+
+  <button class="cerrar" (click)="cerrarDetalle()">X</button>
+
+  <h2>Clases de {{ coachSeleccionado.nombre }}</h2>
+
+  <!-- selector de fecha -->
+  <div class="fecha-select">
+    <button (click)="cambiarDia(-1)">⟵</button>
+
+    <input type="date" [(ngModel)]="diaSeleccionado" (change)="onChangeFecha()">
+
+    <button (click)="cambiarDia(1)">⟶</button>
+
+    <button (click)="diaSeleccionado = obtenerHoy(); cargarClasesDia()">
+      Hoy
+    </button>
+  </div>
+
+  <p><strong>Fecha:</strong> {{ diaSeleccionado }}</p>
+  <p><strong>Total de clases:</strong> {{ totalClases }}</p>
+
+  <table *ngIf="clases.length > 0">
+    <thead>
+      <tr>
+        <th>Día</th>
+        <th>Hora</th>
+        <th>Área</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of clases">
+        <td>{{ c.dia }}</td>
+        <td>{{ c.hora }}</td>
+        <td>{{ c.area }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="clases.length === 0">No hay clases para esta fecha.</p>
+
+</div>

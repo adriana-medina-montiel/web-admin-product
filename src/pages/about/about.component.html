@@ -10,24 +10,33 @@
           [(ngModel)]="terminoBusqueda"
         />
       </div>
+       <button class="btn-add" >Añadir al Invetario</button>
     </div>
   </div>
 
   <table *ngIf="inventarioFiltrado.length > 0; else cargando">
     <thead>
       <tr>
-        <th>Producto</th>
+        <th>producto</th>
         <th>Cantidad</th>
         <th>Ubicación</th>
         <th>Fecha</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of inventarioFiltrado">
-        <td>{{ item.producto }}</td>
+        <td>{{item.producto}}</td>
         <td>{{ item.cantidad }}</td>
         <td>{{ item.ubicacion }}</td>
         <td>{{ item.fecha }}</td>
+        <td class="acciones">
+          <button class="icon-btn delete" >
+            <i class="bi bi-trash"></i>
+          </button>
+          <button class="icon-btn edit" >
+            <i class="bi bi-pencil"></i>
+          </button>
       </tr>
     </tbody>
   </table>

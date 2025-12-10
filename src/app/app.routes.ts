@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'ventas-p', loadComponent: () => import('../pages/ventas-p/ventas-p.component').then(m => m.VentasPComponent) },
   { path: 'grafica-ventas', loadComponent: () => import('../pages/grafica-ventas/grafica-ventas.component').then(m => m.GraficaVentasComponent) },
   { path: 'coach', loadComponent: () => import('../pages/coach/coach.component').then(m => m.CoachComponent) },
-  { path: 'activos', loadComponent: () => import('../pages/activos/activos.component').then(m => m.ActivosComponent) },
+  { path: "gym-map", loadComponent: () => import('../pages/gym-map/gym-map.component').then(m => m.GymMapComponent) },
   { path: 'perfiles', loadComponent: () => import('../pages/perfiles/perfiles.component').then(m => m.PerfilesComponent) },
 
 

@@ -1,25 +1,25 @@
 <nav>
-  <!-- Menú desplegable izquierdo -->
-<div class="menu-izquierdo">
-  <div class="dropdown" (click)="toggleInicioDropdown()" tabindex="0">
-    <button class="dropbtn">☰</button>
-    <div class="dropdown-panel" [class.show]="inicioDropdownOpen">
-      <div class="dropdown-section">
-        <h4>Menú principal</h4>
+
+  <!-- Menú izquierdo -->
+  <div class="menu-izquierdo">
+    <div class="dropdown" (click)="toggleInicioDropdown()">
+      <button class="dropbtn">☰</button>
+
+      <div class="dropdown-panel-left" [class.show]="inicioDropdownOpen">
         <a routerLink="/clientes">Clientes</a>
-        <a routerLink="/ventas-p">Ventas Pequeñas</a>
-        <a routerLink="/grafica-ventas">graficas </a>
-        <a routerLink="/coach">coach </a>
-        <a routerLink="/activos">activos </a>
+        <a routerLink="/ventas-p">Ventas pequeñas</a>
+        <a routerLink="/grafica-ventas">Gráficas</a>
+        <a routerLink="/coach">Coach</a>
+        <a routerLink="/gym-map">Mapa</a>
       </div>
     </div>
   </div>
-</div>
 
-
-
-  <!-- Enlaces principales centrados -->
+  <!-- Enlaces y logo -->
   <div class="nav-links">
+
+    <!-- Logo más cerca del menú izquierdo -->
+    <img src="assets/olimpus.png" alt="Logo" class="logo" width="120" height="45" routerLink="/home">
 
     <a routerLink="/home" routerLinkActive="active">Inicio</a>
     <a routerLink="/about" routerLinkActive="active">Inventario</a>
@@ -28,23 +28,19 @@
     <a routerLink="/membrecias" routerLinkActive="active">Membrecías</a>
   </div>
 
-  <!-- Menú desplegable derecho -->
+  <!-- Menú derecho -->
   <div class="menu-derecho">
-  <div class="dropdown" (click)="toggleUsuarioDropdown()" tabindex="0">
-    <button class="dropbtn">☰</button>
-    <div class="dropdown-panel dropdown-right" [class.show]="usuarioDropdownOpen">
-      <div class="dropdown-section">
-        <h4>Opciones de usuario</h4>
+    <div class="dropdown" (click)="toggleUsuarioDropdown()">
+      <button class="dropbtn">☰</button>
+
+      <div class="dropdown-panel-right" [class.show]="usuarioDropdownOpen">
         <a routerLink="/perfil">Perfil</a>
         <a (click)="cerrarSesion()">Cerrar sesión</a>
-        <a routerLink="/configuracion" class="highlight">Configuración</a>
+        <a routerLink="/configuracion">Configuración</a>
         <a routerLink="/perfiles">Pagos</a>
       </div>
     </div>
-    
   </div>
-</div>
-
 
 </nav>
 
