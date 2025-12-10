@@ -59,6 +59,20 @@
   border-color: #f97316;
   background-color: #fff;
 }
+.btn-add {
+  background: linear-gradient(90deg, #f97316, #ea580c);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background: linear-gradient(90deg, #ff8c1a, #ff6600);
+}
 
 table {
   width: 100%;
@@ -78,4 +92,19 @@ th, td {
 
 tbody tr:hover {
   background-color: #fef3e7;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 5px;
+}
+
+.icon-btn.delete {
+  color: #e63946;
+}
+
+.icon-btn.edit {
+  color: #457b9d;
 }
